@@ -1,9 +1,9 @@
 # CSS-miniProject
 mini projects and components I wrote using HTML5/CSS3
 
-Project 1 :
-Full-Screen Menu with up/down animation and background content blur effect.
-Preview: https://rawcdn.githack.com/MahdiMhqq/CSS-miniProject/1cf5406c2d8f9ef70d65bdf8bde3820270695df0/1-fullScreenMenu-1/index.html
+Project 1 :<br />
+Full-Screen Menu with up/down animation and background content blur effect.<br />
+Preview: https://rawcdn.githack.com/MahdiMhqq/CSS-miniProject/1cf5406c2d8f9ef70d65bdf8bde3820270695df0/1-fullScreenMenu-1/index.html<br />
 
 Project 2 : <br />
 Full-Screen multi-page hero header - Style 1<br />
