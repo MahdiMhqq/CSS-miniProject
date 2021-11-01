@@ -1,0 +1,157 @@
+@import url(cssreset.css);
+
+body, header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(41, 41, 41);
+  display: flex;
+  justify-content: center;
+  direction: rtl;
+  color: rgb(238, 238, 238);
+  overflow: hidden;
+}
+
+nav{
+  height: 100vh;
+  width: 10vw;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  left:0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  box-shadow: 0 0 10px orange;
+}
+
+nav::after{
+  position: absolute;
+  content:'';
+  background: linear-gradient(180deg, rgba(0,0,0,0) 10%, rgba(255,146,0,1) 50%, rgba(0,0,0,0) 90%);
+  width: 1px;
+  height: 100vh;
+}
+
+nav input, nav label{
+  text-align: center;
+  font-size: 30px;
+  padding: 10px;
+  transition: all 0.5s ease;
+  filter: blur(1px);
+}
+@media screen and (max-width:800px){
+  nav{
+    width:15vw;
+  }
+  nav label{
+    font-size: 20px;
+  }
+}
+nav input{
+  display: none;
+}
+
+nav label:hover{
+  color: orange;
+  cursor: pointer;
+}
+
+nav input#chkbox1_id:checked ~ label[for="chkbox1_id"],
+nav input#chkbox2_id:checked ~ label[for="chkbox2_id"],
+nav input#chkbox3_id:checked ~ label[for="chkbox3_id"]{
+  transform: scale(1.2);
+  filter: blur(0px);
+  color: orange;
+}
+
+nav div.page1,
+nav div.page2,
+nav div.page3{
+  position: absolute;
+  width: 90vw;
+  height: 100vh;
+  top:0;
+  right:-90vw;
+  bottom:0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform,filter 0.5s cubic-bezier(0.1, 0.25, 0.7, 1.1);
+  z-index: 1;
+}
+
+nav div.text{
+  text-align: center;
+  transition: margin 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-delay: 0.25s;
+  margin-left: 190vw;
+}
+
+nav div i, nav div h2{
+ font-size: 42px;
+ margin-bottom: 20px;
+}
+nav div p{
+  font-size: 32px;
+  width: 70vw;
+  line-height: 50px;
+  text-align: center;
+}
+nav div a{
+  padding: 10px 20px;
+  background-color: #353535;
+  transition: background-color 0.5s ease;
+}
+
+nav div a:hover{
+  background-color: rgb(150, 97, 0);
+}
+
+nav div.page1{
+  background-color: darkslateblue;
+}
+nav div.page2{
+  background-color: rgb(80, 53, 2);
+}
+nav div.page3{
+  background-color: rgb(27, 65, 109);
+}
+
+nav div.page2,
+nav div.page3{
+  right: -190vw;
+  filter: blur(2px);
+}
+
+nav input#chkbox1_id:checked ~ div.page1 .text,
+nav input#chkbox2_id:checked ~ div.page2 .text,
+nav input#chkbox3_id:checked ~ div.page3 .text{
+  margin:0;
+}
+
+
+nav input#chkbox2_id:checked ~ div.page2,
+nav input#chkbox3_id:checked ~ div.page3{
+  transform: translateX(-100vw);
+  filter: blur(0px);
+}
+
+nav input#chkbox2_id:checked ~ div.page1,
+nav input#chkbox2_id:checked ~ div.page3{
+  filter: blur(2px) grayscale(0.5);
+}
+
+nav input#chkbox1_id:checked ~ div.page2,
+nav input#chkbox1_id:checked ~ div.page3{
+  filter: blur(2px) grayscale(0.5);
+}
+
+nav input#chkbox3_id:checked ~ div.page1,
+nav input#chkbox3_id:checked ~ div.page2{
+  filter: blur(2px) grayscale(0.5);
+}
+

@@ -1,0 +1,128 @@
+@import url(cssreset.css);
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(41, 41, 41);
+  direction: rtl;
+  color: rgb(238, 238, 238);
+  padding: 20px;
+  overflow: hidden;
+}
+.container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  direction: ltr;
+  
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  color: #c7b51b;
+}
+
+.container label div {
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: -3px;
+  transition: all 0.5s ease;
+}
+
+.container label div.close {
+  letter-spacing: 1px;
+}
+
+.container input {
+  display: none;
+}
+
+.container header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.container header a {
+  background-color: #c7b51b;
+  color: rgb(41, 41, 41);
+  padding: 20px 10px;
+  transition: all 0.5s ease;
+}
+
+.container header a:hover {
+  color: #fff292;
+  background-color: #414a2d;
+}
+
+.container label div.open:hover {
+  color: #fff292;
+  letter-spacing: 1px;
+}
+.container label div.close:hover {
+  color: #fff292;
+  letter-spacing: -3px;
+}
+
+.container label div.close {
+  transform: translateY(-40vh);
+}
+
+.container .menu {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #414a2d;
+  color: #c7b51b;
+  transition: all 0.5s ease;
+  transform: translateY(-200vh);
+  filter: blur(10px);
+}
+
+.container .menu ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container .menu ul li {
+  list-style: none;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.container .menu ul li:hover {
+  color: #fff292;
+}
+
+.container input:checked ~ nav.menu {
+  transform: translateY(0);
+  filter: blur(0);
+}
+.container input:checked ~ label div.close {
+  transform: translateY(0);
+}
+.container input:checked ~ label div.open {
+  transform: translateY(-40vh);
+}
+.container input:checked ~ header {
+  transform: translateY(-200vh);
+  filter: blur(10px);
+}

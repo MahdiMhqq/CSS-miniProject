@@ -1,0 +1,356 @@
+@import url(cssreset.css);
+
+* {
+  transition: all 0.3s ease;
+}
+
+/************************* start button hover effects *******************/
+/* Sweep To Right */
+.hvr-sweep-to-right {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(15, 51, 131);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover,
+.hvr-sweep-to-right:focus,
+.hvr-sweep-to-right:active {
+  color: white;
+}
+.hvr-sweep-to-right:hover:before,
+.hvr-sweep-to-right:focus:before,
+.hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/* Sweep To Left */
+.hvr-sweep-to-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(15, 51, 131);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-left:hover,
+.hvr-sweep-to-left:focus,
+.hvr-sweep-to-left:active {
+  color: white;
+}
+.hvr-sweep-to-left:hover:before,
+.hvr-sweep-to-left:focus:before,
+.hvr-sweep-to-left:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+/************************* end button hover effects *******************/
+
+/***** start p4 *****/
+input#menu_btn {
+  display: none;
+}
+
+label[for="menu_btn"] {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  transition: all 0.5s ease;
+}
+
+label[for="menu_btn"] i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 24px;
+  margin: 5px 0;
+  padding: 5px 15px;
+  transition: all 0.5s ease;
+  z-index: 1001;
+}
+
+label[for="menu_btn"] i:hover {
+  cursor: pointer;
+  color: rgb(45, 45, 45);
+  transform: rotate(-90deg);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  min-height: 100vh;
+  width: 30vw;
+  padding: 10px;
+  transform: translateX(-200vw);
+  background-color: rgb(45, 45, 45);
+  transition: all 0.5s ease;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.menu ul li {
+  width: 100%;
+  margin: 15px 5px;
+  list-style: none;
+}
+
+.menu ul li a {
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.menu ul li a:hover {
+  color: rgba(255, 166, 0, 1);
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  transition: all 0.5s ease;
+}
+
+.container .hero_up {
+  height: 7vh;
+  padding: 7px 15px;
+  background-color: rgb(126, 126, 126);
+}
+
+input#menu_btn:checked ~ label[for="menu_btn"] i {
+  color: rgba(255, 166, 0, 1);
+  transform: rotate(-90deg);
+}
+
+input#menu_btn:checked ~ label[for="menu_btn"] {
+  transform: translateX(30vw);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.596);
+  cursor: pointer;
+}
+
+input#menu_btn:checked ~ .container {
+  transform: translateX(30vw);
+  /* width: calc(100% - 30vw); */
+}
+
+input#menu_btn:checked ~ .menu {
+  transform: translateX(-70vw);
+}
+/***** p4 *****/
+
+body {
+  background-color: rgb(40, 40, 40);
+  color: #efefef;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+.slider {
+  width: 100%;
+  height: 93vh;
+  overflow-x: hidden;
+  position: relative;
+}
+.slider input[name="slider"] {
+  display: none;
+}
+
+.slider label[for^="pic"] {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgb(202, 202, 202);
+  border-radius: 50%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  bottom: 10vh;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.slider .radio-switch {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  bottom: 10vh;
+  transform-origin: center;
+  transform: translateY(-5px) translateX(-25px);
+  z-index: 1001;
+}
+
+.slider label[for="pic1"] {
+  transform: translateX(-25px);
+}
+
+.slider label[for="pic3"] {
+  transform: translateX(25px);
+}
+
+.slider div[class^="pic"] {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(55, 55, 55, 0.7);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.slider div.pic1-wrapper {
+  background-image: url(../img/Bussiness\ plan\ bg.png);
+}
+
+.slider div.pic2-wrapper {
+  transform: translateX(100vw);
+  background-image: url(../img/background2.png);
+}
+
+.slider div.pic3-wrapper {
+  transform: translateX(100vw);
+  background-image: url(../img/WebDesign.jpg);
+}
+.slider div[class^="pic"] .text h2 {
+  font-size: 32px;
+  line-height: 50px;
+}
+
+.slider div[class^="pic"] .text {
+  text-align: center;
+  height: 200px;
+  width: 70%;
+  background-color: rgba(55, 55, 55, 0.7);
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.slider div[class^="pic"] .text .links {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.slider div[class^="pic"] .text .links a {
+  width: 80%;
+  padding: 10px 0;
+  margin: 0 10px;
+  background-color: rgba(255, 166, 0, 0.603);
+}
+
+@media screen and (max-width: 550px) {
+  .slider div[class^="pic"] .text .links a {
+    width: unset;
+    padding: 10px 5px;
+  }
+}
+
+/* pic1 slider */
+.slider input#pic1:checked ~ div.pic1-wrapper {
+  transform: translateX(0);
+}
+.slider input#pic1:checked ~ div.pic2-wrapper,
+.slider input#pic1:checked ~ div.pic3-wrapper {
+  transform: translateX(+100vw);
+}
+
+.slider input#pic1:checked ~ .radio-switch {
+  transform: translateY(-5px) translateX(-25px);
+}
+
+/* pic2 slider */
+.slider input#pic2:checked ~ div.pic2-wrapper {
+  transform: translateX(0vw);
+}
+.slider input#pic2:checked ~ div.pic1-wrapper {
+  transform: translateX(-100vw);
+}
+.slider input#pic2:checked ~ div.pic3-wrapper {
+  transform: translateX(+100vw);
+}
+.slider input#pic2:checked ~ .radio-switch {
+  transform: translateY(-5px) translateX(0px);
+}
+
+/* pic3 slider */
+.slider input#pic3:checked ~ div.pic3-wrapper {
+  transform: translateX(0);
+}
+.slider input#pic3:checked ~ div.pic1-wrapper,
+.slider input#pic3:checked ~ div.pic2-wrapper {
+  transform: translateX(-100vw);
+}
+.slider input#pic3:checked ~ .radio-switch {
+  transform: translateY(-5px) translateX(25px);
+}

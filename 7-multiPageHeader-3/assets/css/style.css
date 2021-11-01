@@ -1,0 +1,185 @@
+@import url(cssreset.css);
+
+* {
+  transition: all 0.3s ease;
+}
+
+body {
+  background-color: rgb(40, 40, 40);
+  color: #efefef;
+  direction: rtl;
+  overflow: hidden;
+}
+
+.page-scroller {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.page-scroller input {
+  display: none;
+}
+
+.page-scroller label {
+  display: inline-block;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  left: 40px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.page-scroller label p {
+  opacity: 0.4;
+}
+
+.page-scroller label:nth-of-type(2) {
+  transform: translateY(-20px);
+}
+.page-scroller label:nth-of-type(4) {
+  transform: translateY(20px);
+}
+.page-scroller label:nth-of-type(1) {
+  transform: translateY(-40px);
+}
+.page-scroller label:nth-of-type(5) {
+  transform: translateY(40px);
+}
+
+.page-scroller label i {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgb(255, 255, 255);
+  position: absolute;
+  top: 6px;
+  left: -20px;
+}
+
+.page-scroller .scroll-panel {
+  height: 100%;
+  width: 130px;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+  background-color: rgba(40, 40, 40, 0.4);
+}
+
+.page-scroller .scroll-panel:hover {
+  width: 150px;
+}
+
+.page-scroller label:hover ~ div.scroll-panel {
+  width: 150px;
+}
+
+.page-scroller label:hover p {
+  opacity: 1;
+  transform: translateX(0.5rem);
+}
+
+.page-scroller div[class^="page"] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  filter: blur(2px);
+  color: #2c2c2c;
+  position: absolute;
+  transform: translateY(+100%);
+}
+
+.page-scroller div.page1 {
+  transform: translateY(0);
+}
+
+.page-scroller div[class^="page"] h2 {
+  margin: 40px 20px;
+  font-size: 40px;
+  width: 40%;
+  text-align: right;
+}
+
+.page-scroller div[class^="page"] p {
+  margin: 20px;
+  font-size: 30px;
+  width: 40%;
+  text-align: right;
+}
+
+div.page1 {
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
+div.page2 {
+  background-image: linear-gradient(to right, #decba4, #3e5151);
+}
+div.page3 {
+  background-image: linear-gradient(to right, #8360c3, #2ebf91);
+}
+div.page4 {
+  background-image: linear-gradient(to right, #00b4db, #0083b0);
+}
+div.page5 {
+  background-image: linear-gradient(to right, #2c3e50, #4ca1af);
+}
+
+.page-scroller input#page1:checked ~ div.page1,
+.page-scroller input#page2:checked ~ div.page2,
+.page-scroller input#page3:checked ~ div.page3,
+.page-scroller input#page4:checked ~ div.page4,
+.page-scroller input#page5:checked ~ div.page5 {
+  filter: blur(0);
+  transform: translateY(0%);
+}
+
+.page-scroller input#page2:checked ~ div.page1,
+.page-scroller input#page3:checked ~ div.page2,
+.page-scroller input#page4:checked ~ div.page3,
+.page-scroller input#page5:checked ~ div.page4 {
+  filter: blur(0);
+  transform: translateY(-100%);
+}
+
+.page-scroller #scroll-ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: -58px;
+  bottom: 0;
+  margin: auto 0;
+  left: 20px;
+  z-index: 1001;
+}
+
+.page-scroller input#page1:checked ~ #scroll-ball {
+  transform: translateX(0);
+}
+.page-scroller input#page2:checked ~ #scroll-ball {
+  transform: translateY(20px);
+}
+.page-scroller input#page3:checked ~ #scroll-ball {
+  transform: translateY(40px);
+}
+.page-scroller input#page4:checked ~ #scroll-ball {
+  transform: translateY(60px);
+}
+.page-scroller input#page5:checked ~ #scroll-ball {
+  transform: translateY(80px);
+}
+
+.page-scroller input:checked + label p {
+  opacity: 0.8;
+  transform: translateX(0.5rem);
+}

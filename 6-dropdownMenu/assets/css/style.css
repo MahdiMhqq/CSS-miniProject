@@ -1,0 +1,383 @@
+@import url(cssreset.css);
+
+* {
+  transition: all 0.3s ease;
+}
+
+/************************* start button hover effects *******************/
+/* Sweep To Right */
+.hvr-sweep-to-right {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(15, 51, 131);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover,
+.hvr-sweep-to-right:focus,
+.hvr-sweep-to-right:active {
+  color: white;
+}
+.hvr-sweep-to-right:hover:before,
+.hvr-sweep-to-right:focus:before,
+.hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/* Sweep To Left */
+.hvr-sweep-to-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(15, 51, 131);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-left:hover,
+.hvr-sweep-to-left:focus,
+.hvr-sweep-to-left:active {
+  color: white;
+}
+.hvr-sweep-to-left:hover:before,
+.hvr-sweep-to-left:focus:before,
+.hvr-sweep-to-left:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+/************************* end button hover effects *******************/
+
+/************************* start p5 ***********************************/
+
+body {
+  background-color: rgb(40, 40, 40);
+  color: #efefef;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+.slider {
+  width: 100%;
+  height: 93vh;
+  overflow-x: hidden;
+  position: relative;
+}
+.slider input[name="slider"] {
+  display: none;
+}
+
+.slider label[for^="pic"] {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgb(202, 202, 202);
+  border-radius: 50%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  bottom: 10vh;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.slider .radio-switch {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  bottom: 10vh;
+  transform-origin: center;
+  transform: translateY(-5px) translateX(-25px);
+  z-index: 1001;
+}
+
+.slider label[for="pic1"] {
+  transform: translateX(-25px);
+}
+
+.slider label[for="pic3"] {
+  transform: translateX(25px);
+}
+
+.slider div[class^="pic"] {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(55, 55, 55, 0.7);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.slider div.pic1-wrapper {
+  background-image: url(../img/Bussiness\ plan\ bg.png);
+}
+
+.slider div.pic2-wrapper {
+  transform: translateX(100vw);
+  background-image: url(../img/background2.png);
+}
+
+.slider div.pic3-wrapper {
+  transform: translateX(100vw);
+  background-image: url(../img/WebDesign.jpg);
+}
+.slider div[class^="pic"] .text h2 {
+  font-size: 32px;
+  line-height: 50px;
+}
+
+.slider div[class^="pic"] .text {
+  text-align: center;
+  height: 200px;
+  width: 70%;
+  background-color: rgba(55, 55, 55, 0.7);
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.slider div[class^="pic"] .text .links {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.slider div[class^="pic"] .text .links a {
+  width: 80%;
+  padding: 10px 0;
+  margin: 0 10px;
+  background-color: rgba(255, 166, 0, 0.603);
+}
+
+@media screen and (max-width: 550px) {
+  .slider div[class^="pic"] .text .links a {
+    width: unset;
+    padding: 10px 5px;
+  }
+}
+
+/* pic1 slider */
+.slider input#pic1:checked ~ div.pic1-wrapper {
+  transform: translateX(0);
+}
+.slider input#pic1:checked ~ div.pic2-wrapper,
+.slider input#pic1:checked ~ div.pic3-wrapper {
+  transform: translateX(+100vw);
+}
+
+.slider input#pic1:checked ~ .radio-switch {
+  transform: translateY(-5px) translateX(-25px);
+}
+
+/* pic2 slider */
+.slider input#pic2:checked ~ div.pic2-wrapper {
+  transform: translateX(0vw);
+}
+.slider input#pic2:checked ~ div.pic1-wrapper {
+  transform: translateX(-100vw);
+}
+.slider input#pic2:checked ~ div.pic3-wrapper {
+  transform: translateX(+100vw);
+}
+.slider input#pic2:checked ~ .radio-switch {
+  transform: translateY(-5px) translateX(0px);
+}
+
+/* pic3 slider */
+.slider input#pic3:checked ~ div.pic3-wrapper {
+  transform: translateX(0);
+}
+.slider input#pic3:checked ~ div.pic1-wrapper,
+.slider input#pic3:checked ~ div.pic2-wrapper {
+  transform: translateX(-100vw);
+}
+.slider input#pic3:checked ~ .radio-switch {
+  transform: translateY(-5px) translateX(25px);
+}
+
+/************************* end p5 ***********************************/
+
+/************************* start p6 ***********************************/
+.container .hero_up {
+  height: 10vh;
+  width: 100%;
+  padding: 0 20px;
+  background-color: rgb(158, 154, 154);
+  color: rgb(40, 40, 40);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-container {
+  text-align: right;
+  width: 160px;
+  position: relative;
+}
+
+.dropdown-container button#dropdown,
+.dropdown-container #menu ul a {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.dropdown-container #menu ul a {
+  width: 90%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-container #menu ul a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-container #menu ul a:hover {
+  color: #efefef;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.dropdown-container button#dropdown {
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: rgb(40, 40, 40);
+  font-weight: bold;
+  overflow: hidden;
+  border-top: 1px solid rgba(129, 129, 129, 0.3);
+  border-left: 1px solid rgba(112, 112, 112, 0.3);
+  border-right: 1px solid rgba(40, 40, 40, 0.1);
+  border-bottom: 1px solid rgba(40, 40, 40, 0.1);
+}
+
+.dropdown-container button#dropdown:hover {
+  color: #efefef;
+}
+/* For Neumorphism Effect */
+.neo-effect {
+  background-color: rgb(158, 154, 154);
+  box-shadow: 6px 5px 17px rgb(45 45 45 / 70%),
+    -3px -2px 10px rgb(255 255 255 / 80%);
+}
+.neo-effect:focus,
+.neo-effect:active {
+  box-shadow: inset 4px 3px 7px rgb(45 45 45 / 40%),
+    inset -3px -1px 9px rgb(255 255 255 / 60%);
+}
+/* For Neumorphism Effect */
+
+.dropdown-container button#dropdown i {
+  animation: fadder 10s infinite linear;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(80, 255, 26, 1);
+}
+
+@keyframes fadder {
+  0% {
+    box-shadow: 0 0 0 0 rgba(80, 255, 26, 1), inset 0 0 0 0 rgba(80, 255, 26, 1);
+  }
+  5% {
+    box-shadow: 0 0 0 200px rgba(80, 255, 26, 0),
+      inset 0 0 0 0 rgba(80, 255, 26, 0);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+.dropdown-container #menu {
+  background-color: rgb(158, 154, 154);
+  width: 100%;
+  position: absolute;
+  top: -500%;
+  z-index: 2000;
+  border-radius: 4px;
+  padding: 10px 0;
+  opacity: 0;
+  transition: margin-top 0.2s 0.2s ease-out, opacity 0.2s 0.2s ease-out;
+  /* For Neumorphism Effect */
+  box-shadow: inset -3px -2px 10px rgb(255 255 255 / 80%),
+    inset 6px 5px 17px rgb(45 45 45 / 70%);
+}
+
+.dropdown-container #menu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-container button#dropdown:active ~ #menu,
+.dropdown-container button#dropdown:focus ~ #menu {
+  top: 100%;
+  margin-top: 8px;
+  opacity: 1;
+}
+
+/************************* end p6 ***********************************/

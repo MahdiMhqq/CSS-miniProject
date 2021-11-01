@@ -1,0 +1,83 @@
+@import url(cssreset.css);
+
+body {
+  background-color: rgb(41, 41, 41);
+  display: flex;
+  justify-content: center;
+  direction: rtl;
+  color: rgb(207, 207, 207);
+}
+
+nav {
+  background-color: rgb(92, 92, 92);
+  width: 75vw;
+  height: 50px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  z-index: 1;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav ul div {
+  position: absolute;
+  display: inline-block;
+  border-radius: 6px;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+nav ul .first-home,
+nav ul li:nth-child(1):hover ~ .animation {
+  width: 20%;
+  height: 100%;
+  right: 0;
+  background-color: rgb(146, 144, 5);
+}
+nav ul .second-home,
+nav ul li:nth-child(2):hover ~ .animation {
+  width: 20%;
+  height: 100%;
+  right: 20%;
+  background-color: rgba(205, 50, 50, 1);
+}
+nav ul .third-home,
+nav ul li:nth-child(3):hover ~ .animation {
+  width: 20%;
+  height: 100%;
+  right: 40%;
+  background-color: rgb(0, 148, 79);
+}
+nav ul .forth-home,
+nav ul li:nth-child(4):hover ~ .animation {
+  width: 20%;
+  height: 100%;
+  right: 60%;
+  background-color: rgb(104, 49, 255);
+}
+nav ul .fifth-home,
+nav ul li:nth-child(5):hover ~ .animation {
+  width: 20%;
+  height: 100%;
+  right: 80%;
+  background-color: rgb(165, 0, 165);
+}

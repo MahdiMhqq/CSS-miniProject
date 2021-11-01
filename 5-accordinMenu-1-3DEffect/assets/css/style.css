@@ -1,0 +1,257 @@
+@import url(cssreset.css);
+
+* {
+  transition: all 0.3s ease;
+}
+
+/************************* start button hover effects *******************/
+/* Sweep To Right */
+.hvr-sweep-to-right {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(15, 51, 131);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover,
+.hvr-sweep-to-right:focus,
+.hvr-sweep-to-right:active {
+  color: white;
+}
+.hvr-sweep-to-right:hover:before,
+.hvr-sweep-to-right:focus:before,
+.hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/* Sweep To Left */
+.hvr-sweep-to-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(15, 51, 131);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-left:hover,
+.hvr-sweep-to-left:focus,
+.hvr-sweep-to-left:active {
+  color: white;
+}
+.hvr-sweep-to-left:hover:before,
+.hvr-sweep-to-left:focus:before,
+.hvr-sweep-to-left:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+/************************* end button hover effects *******************/
+
+body {
+  background-color: rgb(40, 40, 40);
+  color: #efefef;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(40, 40, 40, 0.6);
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.text-title h1 {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.text-title p {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-dropdown {
+  width: 50%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  overflow-y: hidden;
+  height: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.281);
+}
+
+.faq-dropdown label {
+  background-color: #c57105;
+  padding: 10px 15px;
+  border-bottom: 1px solid #9b6500;
+  cursor: pointer;
+}
+
+.faq-dropdown input {
+  display: none;
+}
+
+.faq-dropdown label:first-of-type {
+  border-radius: 8px 8px 0 0;
+}
+
+.faq-dropdown label:last-of-type {
+  border-radius: 0 0 8px 8px;
+  border-bottom: none;
+}
+
+.faq-dropdown div[class^="ans"] {
+  height: 0;
+  right: 0;
+  left: 0;
+  overflow-y: hidden;
+  transition: height 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.faq-dropdown div[class^="ans"] ul li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #96891d;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 400px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.faq-dropdown div[class^="ans"] ul li:last-child {
+  border-bottom: none;
+}
+
+.faq-dropdown div[class^="ans"] ul li a {
+  color: white;
+  display: inline-block;
+  width: 100%;
+}
+
+.faq-dropdown div[class^="ans"] ul li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #344918;
+  z-index: -1;
+  transform-origin: bottom;
+  transform: rotate3d(1, 0, 0, 90deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.faq-dropdown div[class^="ans"] ul li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #58570c;
+  z-index: -1;
+  transform-origin: top;
+  transform: rotate3d(1, 0, 0, 0deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.faq-dropdown div[class^="ans"] ul li:hover::before {
+  transform: rotate3d(1, 0, 0, 60deg);
+}
+
+.faq-dropdown div[class^="ans"] ul li:hover::after {
+  transform: rotate3d(1, 0, 0, -60deg);
+  background-color: #44430a;
+}
+
+.faq-dropdown input#q1:checked ~ .ans-1,
+.faq-dropdown input#q2:checked ~ .ans-2,
+.faq-dropdown input#q3:checked ~ .ans-3 {
+  height: 114px;
+}
+
+.faq-dropdown input#q3:checked ~ label[for="q3"] {
+  border-radius: 0;
+}
+
+.faq-dropdown input#q3:not(:checked):hover ~ .ans-3 {
+  height: 10px;
+}
+.faq-dropdown input#q2:not(:checked):hover ~ .ans-2 {
+  height: 10px;
+}
+.faq-dropdown input#q1:not(:checked):hover ~ .ans-1 {
+  height: 10px;
+}
+
+.faq-dropdown input#q3:hover ~ label[for="q3"] {
+  color: black;
+}
+.faq-dropdown input#q2:hover ~ label[for="q2"] {
+  color: black;
+}
+.faq-dropdown input#q1:hover ~ label[for="q1"] {
+  color: black;
+}
